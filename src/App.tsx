@@ -9,8 +9,8 @@ function App() {
 
     <GlobalContextProvider>
       <div className="App">
-        <ComponentA />
-        <ComponentB />
+        {/* <ComponentA />
+        <ComponentB /> */}
         <GameScreen />
       </div>
     </GlobalContextProvider>
