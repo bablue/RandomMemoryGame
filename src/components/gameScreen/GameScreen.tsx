@@ -1,6 +1,9 @@
 import React, { ReactElement, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
 import { GAME_BUTTONS } from '../../Constants/LanguageConstants';
+import { useGlobalState } from '../../Context/GlobalContext';
+import { paths } from '../../RouterConfig/paths';
 import { InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
 // import {  } from "./../../assets/imageSet1";
@@ -11,7 +14,9 @@ export default function GameScreen({ }: Props): ReactElement {
     const [path, setpath] = useState(IMAGE_SET[InitialPathIndex]);
     const [trialNumber, setTrialNumber] = useState(0);
     const [arrayOfImageIndices, setArrayOfImageIndices] = useState([InitialPathIndex])
-
+    const navigate = useNavigate();
+    const { level_value } = useGlobalState();
+    const [level, setLevel] = level_value;
     const nextImage = () => {
         const randomIndex = randomIndexGenerator()
         const randomImagePath = IMAGE_SET[randomIndex];
@@ -22,11 +27,16 @@ export default function GameScreen({ }: Props): ReactElement {
     }
 
     const handleGameButtons = (btn: string) => {
-        setTrialNumber(trialNumber => trialNumber + 1)
+        console.log({ trialNumber });
         if (btn === isMatchingNthLastIndex(1, arrayOfImageIndices)) {
             console.log('correct anwer');
-            if (trialNumber === NO_OF_TRIALS_PER_LEVEL) {
-                //TODO:push the next level info screen
+            if (trialNumber >= NO_OF_TRIALS_PER_LEVEL) {
+                console.log('exceeded no of trials');
+                console.log({ level });
+
+                setLevel(level => level + 1);
+                navigate(paths.levelInfoScreen)
+                // setTrialNumber(0)
             }
             nextImage();
         }

@@ -8,4 +8,4 @@ export const IMAGE_SET: any[] = [
     require('./../assets/imageSet1/luke-braswell-oYFv-_JKsVk-unsplash.jpg')
 ]
 
-export const NO_OF_TRIALS_PER_LEVEL = 20;
+export const NO_OF_TRIALS_PER_LEVEL = 5;

@@ -1,15 +1,15 @@
 import GameScreen from "../components/gameScreen/GameScreen";
 import LevelInfoScreen from "../components/levelInfoScreen/LevelInfoScreen";
-import { path } from "./paths";
+import { paths } from "./paths";
 
 export const RoutesArray = [
     {
-        path: path.gameScreen,
+        path: paths.gameScreen,
         element: <GameScreen />,
         exact: false,
     },
     {
-        path: path.levelInfoScreen,
+        path: paths.levelInfoScreen,
         element: <LevelInfoScreen />,
         exact: false,
     }

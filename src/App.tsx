@@ -18,10 +18,8 @@ function App() {
             {RoutesArray.map(route => {
               return <Route {...route} />
             })}
-            {/* <Route path='/' element={<GameScreen />} /> */}
           </Routes>
         </BrowserRouter>
-        {/* <GameScreen /> */}
       </div>
     </GlobalContextProvider>
 
