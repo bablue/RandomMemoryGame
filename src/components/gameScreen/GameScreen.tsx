@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext, useState } from 'react'
+import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
 import { GAME_BUTTONS } from '../../Constants/LanguageConstants';
@@ -17,6 +17,15 @@ export default function GameScreen({ }: Props): ReactElement {
     const navigate = useNavigate();
     const { level_value } = useGlobalState();
     const [level, setLevel] = level_value;
+    const [isWrongAnswer, setIsWrongAnswer] = useState(false)
+
+    useEffect(() => {
+        console.log(InitialPathIndex);
+        return () => {
+            console.log('unmounting');
+        }
+    }, [])
+
     const nextImage = () => {
         const randomIndex = randomIndexGenerator()
         const randomImagePath = IMAGE_SET[randomIndex];
@@ -28,7 +37,7 @@ export default function GameScreen({ }: Props): ReactElement {
 
     const handleGameButtons = (btn: string) => {
         console.log({ trialNumber });
-        if (btn === isMatchingNthLastIndex(1, arrayOfImageIndices)) {
+        if (btn === isMatchingNthLastIndex(level, arrayOfImageIndices)) {
             console.log('correct anwer');
             if (trialNumber >= NO_OF_TRIALS_PER_LEVEL) {
                 console.log('exceeded no of trials');
@@ -41,21 +50,27 @@ export default function GameScreen({ }: Props): ReactElement {
             nextImage();
         }
         else {
+            setIsWrongAnswer(true);
             console.log('wrong answer');
         }
     }
 
+    const renderButtons = () => {
+        return isWrongAnswer ? <p>that is a wrong answer</p> : <div className="game-buttons">
+            <button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }}>{GAME_BUTTONS.wrong}</button>
+            <button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</button>
+        </div>
+    }
+
     return (
         <>
+            <p>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</p>
             <div className="image-container">
                 <img className='image' src={path}></img>
             </div>
-            {arrayOfImageIndices.length <= 1 ?
-                <button onClick={nextImage}>next</button> :
-                <div className="game-buttons">
-                    <button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }}>{GAME_BUTTONS.wrong}</button>
-                    <button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</button>
-                </div>
+            {arrayOfImageIndices.length <= level ?
+                <button onClick={nextImage}>next</button> : renderButtons()
+
             }
         </>
     )

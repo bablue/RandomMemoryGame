@@ -1,4 +1,6 @@
 export const paths = {
-    levelInfoScreen: '/',
-    gameScreen: '/gameScreen'
+    levelInfoScreen: '/levelInfoScreen',
+    gameScreen: '/gameScreen',
+    instructionScreen: '/instructionScreen',
+    home: '/',
 }

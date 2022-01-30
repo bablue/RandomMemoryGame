@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { LEVEL_INFO_SCREEN, PLAY_BUTTON_TEXT } from '../../Constants/LanguageConstants';
+import { Link, useNavigate } from 'react-router-dom';
+import { LEVEL_INFO_SCREEN, PLAY_BUTTON_TEXT, READ_INSTRUCTIONS } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext'
 import { paths } from '../../RouterConfig/paths';
 
@@ -25,6 +25,10 @@ export default function LevelInfoScreen({ }: Props): ReactElement {
                     : LEVEL_INFO_SCREEN.firstLevelInfo
             }
             <button onClick={handlePlay}>{PLAY_BUTTON_TEXT}</button>
+
+            <br>
+            </br>
+            <Link to={paths.instructionScreen}>{READ_INSTRUCTIONS}</Link>
         </div>
     )
 }

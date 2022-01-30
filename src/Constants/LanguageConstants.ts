@@ -7,3 +7,6 @@ export const LEVEL_INFO_SCREEN = {
     levelInfo: 'Continue to level',
 }
 export const PLAY_BUTTON_TEXT = 'Play';
+export const PROCEED_TO_GAME_BUTTON_TEXT = 'Proceed';
+export const START_GAME_BUTTON = 'Start Game';
+export const READ_INSTRUCTIONS = 'How To Play'
