@@ -3,7 +3,7 @@ import { NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants'
 import { GAME_BUTTONS, PROCEED_TO_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants'
 import { useGlobalState } from '../../Context/GlobalContext'
 import { useNavigate } from "react-router-dom";
-import { paths } from '../../RouterConfig/paths';
+import paths from '../../RouterConfig/paths';
 
 interface Props {
 

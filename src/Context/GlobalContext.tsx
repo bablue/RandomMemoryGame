@@ -1,11 +1,11 @@
 import React, { Children, ReactElement, useState, useContext } from "react";
 import { ContextValue } from "../types/ContextTypes/ContextTypes";
-import { defaultState } from "./../Constants/DefaultState";
+import defaultState from "./../Constants/DefaultState";
 
 
 const { levelDefault } = defaultState;
 
-const defaultContextValue:ContextValue ={
+const defaultContextValue: ContextValue = {
     valueApair: [false, () => { }],
     valueBpair: [false, () => { }],
     level_value: [levelDefault, () => { }],

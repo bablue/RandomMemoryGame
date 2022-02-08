@@ -1,10 +1,10 @@
 import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
-import { defaultState } from '../../Constants/DefaultState';
+import defaultState from '../../Constants/DefaultState';
 import { GAME_BUTTONS, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
-import { paths } from '../../RouterConfig/paths';
+import paths from '../../RouterConfig/paths';
 import { InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
 // import {  } from "./../../assets/imageSet1";

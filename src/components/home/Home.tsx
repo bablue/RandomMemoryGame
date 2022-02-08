@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { START_GAME_BUTTON } from '../../Constants/LanguageConstants';
-import { paths } from '../../RouterConfig/paths';
+import paths from '../../RouterConfig/paths';
 
 interface Props {
 
