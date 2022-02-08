@@ -1,6 +1,7 @@
-export const paths = {
-    levelInfoScreen: '/levelInfoScreen',
-    gameScreen: '/gameScreen',
-    instructionScreen: '/instructionScreen',
-    home: '/',
-}
+const paths = {
+  levelInfoScreen: '/levelInfoScreen',
+  gameScreen: '/gameScreen',
+  instructionScreen: '/instructionScreen',
+  home: '/',
+};
+export default paths;

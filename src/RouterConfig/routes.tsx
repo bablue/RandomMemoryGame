@@ -2,7 +2,7 @@ import GameScreen from "../components/gameScreen/GameScreen";
 import Home from "../components/home/Home";
 import Instructions from "../components/instructions/Instructions";
 import LevelInfoScreen from "../components/levelInfoScreen/LevelInfoScreen";
-import { paths } from "./paths";
+import paths from "./paths";
 
 export const RoutesArray = [
     {

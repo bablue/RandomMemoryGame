@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { LEVEL_INFO_SCREEN, PLAY_BUTTON_TEXT, READ_INSTRUCTIONS } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext'
-import { paths } from '../../RouterConfig/paths';
+import paths from '../../RouterConfig/paths';
 
 interface Props {
 

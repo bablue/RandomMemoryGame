@@ -1,9 +1,10 @@
 import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
-import { GAME_BUTTONS } from '../../Constants/LanguageConstants';
+import defaultState from '../../Constants/DefaultState';
+import { GAME_BUTTONS, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
-import { paths } from '../../RouterConfig/paths';
+import paths from '../../RouterConfig/paths';
 import { InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
 // import {  } from "./../../assets/imageSet1";
@@ -54,12 +55,19 @@ export default function GameScreen({ }: Props): ReactElement {
             console.log('wrong answer');
         }
     }
-
+    const handleRestartButton = () => {
+        setLevel(defaultState.levelDefault)
+        navigate(paths.levelInfoScreen)
+    }
     const renderButtons = () => {
-        return isWrongAnswer ? <p>that is a wrong answer</p> : <div className="game-buttons">
-            <button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }}>{GAME_BUTTONS.wrong}</button>
-            <button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</button>
-        </div>
+        return isWrongAnswer ? <>
+            <p>that is a wrong answer</p>
+            <button onClick={handleRestartButton}>{RESTART_GAME_BUTTON_TEXT}</button>
+        </>
+            : <div className="game-buttons">
+                <button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }}>{GAME_BUTTONS.wrong}</button>
+                <button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</button>
+            </div>
     }
 
     return (

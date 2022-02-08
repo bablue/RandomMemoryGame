@@ -1,4 +1,4 @@
-
-export const defaultState = {
-    levelDefault: 1
-}
+const defaultState = {
+  levelDefault: 1,
+};
+export default defaultState;

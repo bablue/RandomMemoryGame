@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { GlobalContextProvider } from "./Context/GlobalContext";
 import ComponentA from "./components/gameScreen/ComponentA";
 import ComponentB from './components/gameScreen/ComponentB';
