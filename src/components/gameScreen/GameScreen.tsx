@@ -5,6 +5,9 @@ import defaultState from '../../Constants/DefaultState';
 import { GAME_BUTTONS, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
 import paths from '../../RouterConfig/paths';
+import { Button } from '../../styledComponents/Button.styled';
+import { Image } from '../../styledComponents/Image.styled';
+import { Typography } from '../../styledComponents/Typography.styled';
 import { InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
 // import {  } from "./../../assets/imageSet1";
@@ -62,22 +65,22 @@ export default function GameScreen({ }: Props): ReactElement {
     const renderButtons = () => {
         return isWrongAnswer ? <>
             <p>that is a wrong answer</p>
-            <button onClick={handleRestartButton}>{RESTART_GAME_BUTTON_TEXT}</button>
+            <Button onClick={handleRestartButton}>{RESTART_GAME_BUTTON_TEXT}</Button>
         </>
             : <div className="game-buttons">
-                <button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }}>{GAME_BUTTONS.wrong}</button>
-                <button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</button>
+                <Button onClick={() => { handleGameButtons(GAME_BUTTONS.wrong) }} secondary>{GAME_BUTTONS.wrong}</Button>
+                <Button onClick={() => { handleGameButtons(GAME_BUTTONS.correct) }}>{GAME_BUTTONS.correct}</Button>
             </div>
     }
 
     return (
         <>
-            <p>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</p>
+            <Typography>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</Typography>
             <div className="image-container">
-                <img className='image' src={path}></img>
+                <Image className='image' src={path}></Image>
             </div>
             {arrayOfImageIndices.length <= level ?
-                <button onClick={nextImage}>next</button> : renderButtons()
+                <Button onClick={nextImage}>next</Button> : renderButtons()
 
             }
         </>
