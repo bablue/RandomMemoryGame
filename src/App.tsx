@@ -6,6 +6,7 @@ import ComponentB from './components/gameScreen/ComponentB';
 import GameScreen from './components/gameScreen/GameScreen';
 import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import { RoutesArray } from './RouterConfig/routes';
+import Button from './styledComponents/Button.styled';
 function App() {
   return (
 
@@ -14,6 +15,7 @@ function App() {
         {/* <ComponentA />
         <ComponentB /> */}
         <BrowserRouter>
+          <Button>Help</Button>
           <Routes>
             {RoutesArray.map(route => {
               return <Route {...route} />
