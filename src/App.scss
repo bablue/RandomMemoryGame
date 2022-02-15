@@ -1,15 +1,19 @@
-$background: #ddd2d4;
+// $background: #ddd2d4;
 
-.App {
-    background-color: $background;
-    text-align: center;
-    max-width: 600px;
-    padding: 2em;
-    box-sizing: border-box;
-    border-radius: 2em;
-    margin: 5em auto;
-    min-height: 400px;
-}
-body {
-    background: #282727;
+// .App {
+//     background-color: $background;
+//     text-align: center;
+//     max-width: 600px;
+//     padding: 2em;
+//     box-sizing: border-box;
+//     border-radius: 2em;
+//     margin: 5em auto;
+//     min-height: 400px;
+// }
+// body {
+//     background: #282727;
+// }
+
+.align-left {
+    text-align: left;
 }
