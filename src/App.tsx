@@ -6,7 +6,6 @@ import ComponentB from './components/gameScreen/ComponentB';
 import GameScreen from './components/gameScreen/GameScreen';
 import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import { RoutesArray } from './RouterConfig/routes';
-import { Button } from './styledComponents/Button.styled';
 import { ThemeProvider } from 'styled-components';
 import dark from './themes/dark';
 import { GlobalStyles } from './styledComponents/Global.styled';
@@ -23,9 +22,7 @@ function App() {
           {/* <ComponentA />
         <ComponentB /> */}
           <BrowserRouter>
-            <Button secondary>Help</Button>
             <Card>
-
               <Routes>
                 {RoutesArray.map(route => {
                   return <Route {...route} />

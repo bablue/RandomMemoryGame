@@ -22,6 +22,7 @@ export const Button = styled.button<Props>`
     }
     &:active{
         opacity: .8;
+        box-shadow: 0px 0px 7px 2px ${({ theme }) => theme.backgrounds.button.primary.normal};
     }
     ${({ secondary }) => secondary && css`
         background: ${({ theme }) => theme.backgrounds.button.secondary.normal};;
