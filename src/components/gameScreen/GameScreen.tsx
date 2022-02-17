@@ -2,7 +2,7 @@ import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL, QUESTION_SUFFIX_MAPPER } from '../../Constants/ConfigConstants';
 import defaultState from '../../Constants/DefaultState';
-import { GAME_BUTTONS, QUESTION_TEXT, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
+import { GAME_BUTTONS, QUESTION_TEXT, RESTART_GAME_BUTTON_TEXT, WRONG_ANSWER_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
 import paths from '../../RouterConfig/paths';
 import { Button } from '../../styledComponents/Button.styled';
@@ -64,7 +64,7 @@ export default function GameScreen({ }: Props): ReactElement {
     }
     const renderButtons = () => {
         return isWrongAnswer ? <>
-            <p>that is a wrong answer</p>
+            <Typography>{WRONG_ANSWER_TEXT}</Typography>
             <Button onClick={handleRestartButton}>{RESTART_GAME_BUTTON_TEXT}</Button>
         </>
             : <div className="game-buttons">
@@ -75,7 +75,7 @@ export default function GameScreen({ }: Props): ReactElement {
 
     return (
         <>
-            <Typography>
+            <Typography subHeading>
                 {
                     getQuestionText(arrayOfImageIndices.length, level)
                 }
@@ -83,7 +83,7 @@ export default function GameScreen({ }: Props): ReactElement {
             <div className="image-container">
                 <Image className='image' src={path}></Image>
             </div>
-            <Typography>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</Typography>
+            <Typography subHeading>Trial <strong>{trialNumber}</strong>/{NO_OF_TRIALS_PER_LEVEL}</Typography>
             {arrayOfImageIndices.length <= level ?
                 <Button onClick={nextImage}>next</Button> : renderButtons()
             }
