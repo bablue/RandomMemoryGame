@@ -1,14 +1,14 @@
 import React, { ReactElement, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
+import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL, QUESTION_SUFFIX_MAPPER } from '../../Constants/ConfigConstants';
 import defaultState from '../../Constants/DefaultState';
-import { GAME_BUTTONS, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
+import { GAME_BUTTONS, QUESTION_TEXT, RESTART_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
 import paths from '../../RouterConfig/paths';
 import { Button } from '../../styledComponents/Button.styled';
 import { Image } from '../../styledComponents/Image.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
-import { InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
+import { getQuestionText, InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
 // import {  } from "./../../assets/imageSet1";
 interface Props {
@@ -75,13 +75,17 @@ export default function GameScreen({ }: Props): ReactElement {
 
     return (
         <>
-            <Typography>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</Typography>
+            <Typography>
+                {
+                    getQuestionText(arrayOfImageIndices.length, level)
+                }
+            </Typography>
             <div className="image-container">
                 <Image className='image' src={path}></Image>
             </div>
+            <Typography>Trial {trialNumber}/{NO_OF_TRIALS_PER_LEVEL}</Typography>
             {arrayOfImageIndices.length <= level ?
                 <Button onClick={nextImage}>next</Button> : renderButtons()
-
             }
         </>
     )
