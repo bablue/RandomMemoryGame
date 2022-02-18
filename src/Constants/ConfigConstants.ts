@@ -9,7 +9,7 @@ export const IMAGE_SET: any[] = [
   // require('../assets/imageSet1/birmingham-museums-trust-lhsfeT9WZ9M-unsplash.jpg'),
   require('./../assets/imageSet1/newimages/image(1).png'),
   require('./../assets/imageSet1/newimages/image(2).png'),
-  require('./../assets/imageSet1/newimages/image(3).png'),
+  // require('./../assets/imageSet1/newimages/image(3).png'),
   require('./../assets/imageSet1/newimages/image(4).png'),
   require('./../assets/imageSet1/newimages/image(5).png'),
   require('./../assets/imageSet1/newimages/image(6).png'),
