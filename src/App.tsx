@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.scss';
 import { GlobalContextProvider } from "./Context/GlobalContext";
-import ComponentA from "./components/gameScreen/ComponentA";
-import ComponentB from './components/gameScreen/ComponentB';
-import GameScreen from './components/gameScreen/GameScreen';
 import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 import { RoutesArray } from './RouterConfig/routes';
 import { ThemeProvider } from 'styled-components';
@@ -15,12 +12,9 @@ import { Card } from './styledComponents/Card.styled';
 function App() {
   return (
     <ThemeProvider theme={dark}>
-
       <GlobalContextProvider>
         <GlobalStyles />
         <div className="App">
-          {/* <ComponentA />
-        <ComponentB /> */}
           <BrowserRouter>
             <Card>
               <Routes>

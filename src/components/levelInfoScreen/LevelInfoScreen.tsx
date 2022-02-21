@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { LEVEL_INFO_SCREEN, PLAY_BUTTON_TEXT, READ_INSTRUCTIONS } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext'
@@ -7,15 +7,12 @@ import { Button } from '../../styledComponents/Button.styled';
 import { LinkTag } from '../../styledComponents/Link.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
 
-interface Props {
-
+interface IAppProps {
 }
 
-export default function LevelInfoScreen({ }: Props): ReactElement {
+const LevelInfoScreen: React.FunctionComponent<IAppProps> = (props) => {
     const { level_value } = useGlobalState();
-    const [level, setLevel] = level_value;
-    console.log({ level });
-
+    const [level] = level_value;
     const navigate = useNavigate();
 
     const handlePlay = () => {
@@ -41,4 +38,8 @@ export default function LevelInfoScreen({ }: Props): ReactElement {
             </Link>
         </div>
     )
-}
+};
+
+export default LevelInfoScreen;
+
+

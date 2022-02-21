@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { IMAGE_SET } from '../../Constants/ConfigConstants';
 import { START_GAME_BUTTON } from '../../Constants/LanguageConstants';
@@ -6,14 +6,15 @@ import paths from '../../RouterConfig/paths';
 import { Button } from '../../styledComponents/Button.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
 
-interface Props {
 
+interface IAppProps {
 }
-export default function Home({ }: Props): ReactElement {
+
+const Home: React.FunctionComponent<IAppProps> = (props) => {
     const navigate = useNavigate();
     const [isLoading, setisLoading] = useState(false);
     const loadImages = async () => {
-        const promises = await IMAGE_SET.map(image => {
+        const promises = IMAGE_SET.map(image => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.src = image
@@ -47,3 +48,4 @@ export default function Home({ }: Props): ReactElement {
         </div>
     )
 }
+export default Home

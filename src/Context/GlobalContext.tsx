@@ -1,4 +1,4 @@
-import React, { Children, ReactElement, useState, useContext } from "react";
+import React, { ReactElement, useState, useContext } from "react";
 import { ContextValue } from "../types/ContextTypes/ContextTypes";
 import defaultState from "./../Constants/DefaultState";
 
@@ -6,9 +6,12 @@ import defaultState from "./../Constants/DefaultState";
 const { levelDefault } = defaultState;
 
 const defaultContextValue: ContextValue = {
-    valueApair: [false, () => { }],
-    valueBpair: [false, () => { }],
-    level_value: [levelDefault, () => { }],
+    valueApair: [false, () => { // This is intentional
+    }],
+    valueBpair: [false, () => { // This is intentional
+    }],
+    level_value: [levelDefault, () => { // This is intentional
+    }],
 }
 
 const useContextValueCreator = (): ContextValue => {
@@ -28,15 +31,12 @@ const useContextCreator = () => {
     return React.createContext(useContextValueCreator());
 }
 export const useGlobalState = () => {
-    // const context = useContext(useContextCreator());
-    const context = useContext(globalContext);
-    return context;
+    return useContext(globalContext);
 }
 interface Props {
     children: React.ReactNode
 }
 export function GlobalContextProvider({ children }: Props): ReactElement {
-    // const GlobalContextMain = useContextCreator();
     const GlobalContextMain = globalContext;
     return (
         <GlobalContextMain.Provider value={useContextValueCreator()}>
