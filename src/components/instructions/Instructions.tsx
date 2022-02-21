@@ -1,17 +1,15 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants'
 import { GAME_BUTTONS, PROCEED_TO_GAME_BUTTON_TEXT } from '../../Constants/LanguageConstants'
-import { useGlobalState } from '../../Context/GlobalContext'
 import { useNavigate } from "react-router-dom";
 import paths from '../../RouterConfig/paths';
 import { Typography } from '../../styledComponents/Typography.styled';
 import { Button } from '../../styledComponents/Button.styled';
 
-interface Props {
-
+interface IAppProps {
 }
 
-export default function Instructions({ }: Props): ReactElement {
+const Instructions: React.FunctionComponent<IAppProps> = (props) => {
     const navigate = useNavigate();
     const handleProceed = () => {
         navigate(paths.levelInfoScreen)
@@ -46,10 +44,6 @@ export default function Instructions({ }: Props): ReactElement {
         <br></br>
         <Button onClick={handleProceed}>{PROCEED_TO_GAME_BUTTON_TEXT}</Button>
     </>
-
-
     )
-
-
-
 }
+export default Instructions;
