@@ -6,7 +6,7 @@ interface Props {
 
 }
 
-export default function GameContainer({ }: Props): ReactElement {
+export default function GameContainer(props:Props={ }): ReactElement {
     return (
         <div>
             <BrowserRouter>

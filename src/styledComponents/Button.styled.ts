@@ -1,6 +1,4 @@
 import styled, { css } from "styled-components";
-import { ThemeInterface } from "../types/ThemeType";
-import ButtonHelper from "./helpers/ButtonHelper";
 
 interface Props {
     secondary?: boolean;

@@ -1,8 +1,8 @@
-import React, { ReactElement, useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL, QUESTION_SUFFIX_MAPPER } from '../../Constants/ConfigConstants';
+import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
 import defaultState from '../../Constants/DefaultState';
-import { GAME_BUTTONS, QUESTION_TEXT, RESTART_GAME_BUTTON_TEXT, WRONG_ANSWER_TEXT } from '../../Constants/LanguageConstants';
+import { GAME_BUTTONS, RESTART_GAME_BUTTON_TEXT, WRONG_ANSWER_TEXT } from '../../Constants/LanguageConstants';
 import { useGlobalState } from '../../Context/GlobalContext';
 import paths from '../../RouterConfig/paths';
 import { Button } from '../../styledComponents/Button.styled';
@@ -10,11 +10,12 @@ import { Image } from '../../styledComponents/Image.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
 import { getQuestionText, InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
 import "./GameScreen.scss";
-// import {  } from "./../../assets/imageSet1";
-interface Props {
 
+
+interface IAppProps {
 }
-export default function GameScreen({ }: Props): ReactElement {
+
+const GameScreen: React.FunctionComponent<IAppProps> = (props) => {
     const [path, setpath] = useState(IMAGE_SET[InitialPathIndex]);
     const [trialNumber, setTrialNumber] = useState(0);
     const [arrayOfImageIndices, setArrayOfImageIndices] = useState([InitialPathIndex])
@@ -23,39 +24,24 @@ export default function GameScreen({ }: Props): ReactElement {
     const [level, setLevel] = level_value;
     const [isWrongAnswer, setIsWrongAnswer] = useState(false)
 
-    useEffect(() => {
-        console.log(InitialPathIndex);
-        return () => {
-            console.log('unmounting');
-        }
-    }, [])
-
     const nextImage = () => {
         const randomIndex = randomIndexGenerator()
         const randomImagePath = IMAGE_SET[randomIndex];
         setArrayOfImageIndices(indeces => [...indeces, randomIndex]);
         setpath(randomImagePath);
-        setTrialNumber(trialNumber => trialNumber + 1)
-        console.log(randomIndex);
+        setTrialNumber(currentTrialNumber => currentTrialNumber + 1)
     }
 
     const handleGameButtons = (btn: string) => {
-        console.log({ trialNumber });
         if (btn === isMatchingNthLastIndex(level, arrayOfImageIndices)) {
-            console.log('correct anwer');
             if (trialNumber >= NO_OF_TRIALS_PER_LEVEL) {
-                console.log('exceeded no of trials');
-                console.log({ level });
-
-                setLevel(level => level + 1);
+                setLevel(currentLevel => currentLevel + 1);
                 navigate(paths.levelInfoScreen)
-                // setTrialNumber(0)
             }
             nextImage();
         }
         else {
             setIsWrongAnswer(true);
-            console.log('wrong answer');
         }
     }
     const handleRestartButton = () => {
@@ -90,3 +76,4 @@ export default function GameScreen({ }: Props): ReactElement {
         </>
     )
 }
+export default GameScreen;
