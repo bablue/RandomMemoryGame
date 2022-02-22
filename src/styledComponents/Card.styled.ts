@@ -5,11 +5,14 @@ export const Card = styled.div`
     border-radius: 1em;
     padding: 2em 1.5em;
     // box-shadow:-0.3em 0.3em 0.2em #464643;
-    max-width: 80vw;
-    margin: 1em auto;
+    min-width: 80vw;
+    margin: 2em auto;
     text-align: center;
+    height: 90vh;
+    max-width:80vw;
+    overflow-y:auto;
 
-    @media (min-width:768px){
-        margin: 6em auto;
-    }
+    // @media (min-width:768px){
+    //     margin: 6em auto;
+    // }
 `
