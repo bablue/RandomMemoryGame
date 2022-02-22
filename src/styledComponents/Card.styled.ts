@@ -8,4 +8,8 @@ export const Card = styled.div`
     max-width: 80vw;
     margin: 1em auto;
     text-align: center;
+
+    @media (min-width:768px){
+        margin: 6em auto;
+    }
 `
