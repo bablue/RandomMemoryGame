@@ -1,3 +1,4 @@
+export const APPLICATION_NAME = 'Get Smart'
 export const GAME_BUTTONS = {
   wrong: 'No',
   correct: 'Yes',

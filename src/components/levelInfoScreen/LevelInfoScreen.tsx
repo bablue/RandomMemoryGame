@@ -5,6 +5,7 @@ import { useGlobalState } from '../../Context/GlobalContext'
 import paths from '../../RouterConfig/paths';
 import { Button } from '../../styledComponents/Button.styled';
 import { LinkTag } from '../../styledComponents/Link.styled';
+import Spacing from '../../styledComponents/Spacing.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
 
 interface IAppProps {
@@ -31,6 +32,7 @@ const LevelInfoScreen: React.FunctionComponent<IAppProps> = (props) => {
 
             <br>
             </br>
+            <Spacing size='3' />
             <Link to={paths.instructionScreen}>
                 <LinkTag>
                     {READ_INSTRUCTIONS}
