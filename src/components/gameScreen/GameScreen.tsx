@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IMAGE_SET, NO_OF_TRIALS_PER_LEVEL } from '../../Constants/ConfigConstants';
@@ -9,6 +10,7 @@ import { Button } from '../../styledComponents/Button.styled';
 import { Image } from '../../styledComponents/Image.styled';
 import { Typography } from '../../styledComponents/Typography.styled';
 import { getQuestionText, InitialPathIndex, isMatchingNthLastIndex, randomIndexGenerator } from '../../Utility/CommonFunctions';
+import DarkTheme from "./../../themes/dark";
 import "./GameScreen.scss";
 
 
@@ -67,7 +69,13 @@ const GameScreen: React.FunctionComponent<IAppProps> = (props) => {
                 }
             </Typography>
             <div className="image-container">
-                <Image className='image' src={path}></Image>
+                <Image className='image'>
+                    <FontAwesomeIcon
+                        icon={path}
+                        size='10x'
+                        color={DarkTheme.backgrounds.button.primary.normal} />
+
+                </Image>
             </div>
             <Typography subHeading>Trial <strong>{trialNumber}</strong>/{NO_OF_TRIALS_PER_LEVEL}</Typography>
             {arrayOfImageIndices.length <= level ?
