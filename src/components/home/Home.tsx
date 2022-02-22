@@ -38,10 +38,13 @@ const Home: React.FunctionComponent<IAppProps> = (props) => {
     const handleProceedToGame = () => {
         navigate(paths.instructionScreen);
     }
-    useEffect(() => {
-        setisLoading(true);
-        loadImages();
-    }, [])
+    /**
+     * the below use effect is supposed to be used only to preload images
+     */
+    // useEffect(() => {
+    //     setisLoading(true);
+    //     loadImages();
+    // }, [])
     return (
         <div>
             <FontAwesomeIcon icon={faSnowflake} size='10x' color={DarkTheme.backgrounds.button.primary.normal} />
