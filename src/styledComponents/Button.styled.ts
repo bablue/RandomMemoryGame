@@ -13,6 +13,7 @@ export const Button = styled.button<Props>`
     border: none;
     color: ${({ theme }) => theme.colors.button};
     min-width: 8em;
+    font-weight: 700;
 
     &:hover{
         background:${({ theme }) => theme.backgrounds.button.primary.hover};
