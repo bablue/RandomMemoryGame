@@ -32,4 +32,8 @@ export const Button = styled.button<Props>`
             background:${({ theme }) => theme.backgrounds.button.secondary.hover};;
         }
     `}
+
+    @media (max-width:400px){
+        min-width:7em;
+    }
 `
