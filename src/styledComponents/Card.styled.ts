@@ -8,11 +8,11 @@ export const Card = styled.div`
     min-width: 80vw;
     margin: 2em auto;
     text-align: center;
-    height: 90vh;
+    max-height:85vh;
     max-width:80vw;
     overflow-y:auto;
 
-    // @media (min-width:768px){
+    // @media (min-width:768px){s
     //     margin: 6em auto;
     // }
 `
